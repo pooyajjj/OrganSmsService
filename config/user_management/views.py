@@ -16,35 +16,8 @@ class Login(View):
         if form.is_valid():
             user = authenticate(
                 request,
-                username=form.cleaned_data.get('username'),
-                password=form.cleaned_data.get('password')
+                username = form.cleaned_data.get('username'),
+                password = form.cleaned_data.get('password')
             )
-
-            if user is None :
-                return render(
-
-                    request,
-                    'tmp/login.html',
-                    { 'form': form, 'invalid_creds': True }
-
-                )
-
-            try:
-                form.confirm_login_allowed(user)
-
-            except ValidationError:
-
-                return render(
-                    request,
-                    'tmp/login.html',
-                    { 'form': form, 'invalid_creds': True }
-
-                )
-
-
-            return redirect('/organsmspanel')
+        return redirect('/organsmspanel')
         
-        return render (request,'tmp/login.html',{
-        'help_text': True, 
-        'form': AuthenticationForm
-        })
