@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.auth.forms import AuthenticationForm
-from django.core.exceptions import ValidationError
 from django.contrib.auth import authenticate
 
 # Create your views here.
@@ -19,5 +18,5 @@ class Login(View):
                 username = form.cleaned_data.get('username'),
                 password = form.cleaned_data.get('password')
             )
-        return redirect('/organsmspanel')
+            return redirect('/organsmspanel')
         
