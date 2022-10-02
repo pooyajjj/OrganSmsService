@@ -5,5 +5,5 @@ from .views import Login
 
 
 urlpatterns = [
-    path('', Login.as_view(), name = 'login')
+    path('', Login, name = 'login')
 ]

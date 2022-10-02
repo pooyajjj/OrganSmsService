@@ -2,21 +2,13 @@ from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate
-
+from .models import user
 # Create your views here.
 
-
-class Login(View):
-    def get(self, request):
-        return render(request, 'tmp/login.html', {'form': AuthenticationForm })
-
-    def post(self, request):
-        form = AuthenticationForm(request, data = request.POST)
-        if form.is_valid():
-            user = authenticate(
-                request,
-                username = form.cleaned_data.get('username'),
-                password = form.cleaned_data.get('password')
-            )
-            return redirect('/organsmspanel')
+def Login(request):
+    username = request.POST.get('username')
+    password = request.POST.get('password')
+    user = authenticate(request, Username=username, Password=password)
+    if user.is_valid():
+        return redirect('/organsmspanel')
         
