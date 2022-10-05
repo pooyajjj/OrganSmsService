@@ -20,3 +20,5 @@ def login_view(request):
     context = {'form':form}
     return render(request, 'tmp/login.html', context)
 
+
+
