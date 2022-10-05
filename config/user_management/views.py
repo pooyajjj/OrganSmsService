@@ -56,3 +56,5 @@ def signup_view(request):
 #         else :
 #             return redirect ('/../fuck/')
 #         # return render(request, 'tmp/signup.html', {'form': UserCreationForm()})
+
+
