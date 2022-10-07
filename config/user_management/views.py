@@ -5,6 +5,12 @@ from django.views import View
 from .forms import SignUpForm
 
 
+def home(request):
+    return render (request, 'tmp/home.html')
+
+
+
+
 def login_view(request):
     if request.method == 'POST':
         form = AuthenticationForm(request=request, data=request.POST)
@@ -14,7 +20,7 @@ def login_view(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('/ok/')
+                return redirect('/')
         else:
             return redirect('/../signup/')
 
@@ -36,7 +42,7 @@ def signup_view(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('/ok/')
+                return redirect('/../login/')
         else :
             return redirect('/../no/')
     form = AuthenticationForm()
