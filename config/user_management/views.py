@@ -1,12 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from django.views import View
 from .forms import SignUpForm
 
 
 def home(request):
-    return render (request, 'tmp/home.html')
+    return render (request, 'tmp/index.html')
 
 
 
@@ -49,21 +48,14 @@ def signup_view(request):
     context = {'form': form}
     return render(request, 'tmp/signup.html', context)
 
-# class base signup
-# class signup_view(View):
-#     def get(sefl, request):
-#         return render(request, 'tmp/signup.html',{'form': UserCreationForm()})
 
-#     def post(self, request):
-#         form = UserCreationForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             username = form.cleaned_data.get('username')
-#             password = form.cleaned_data.get('password')
-#             user = authenticate(username=username, password=password)
-#             user.save()
-#             login(request, user)
-#             return redirect('nice/')
-#         else :
-#             return redirect ('/../fuck/')
-#         # return render(request, 'tmp/signup.html', {'form': UserCreationForm()})
+def forgetpass(request):
+    pass
+
+
+def contact(request):
+    pass
+
+
+def api_call(request):
+    pass
